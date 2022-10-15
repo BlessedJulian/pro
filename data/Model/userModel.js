@@ -4,16 +4,16 @@ const details = mongoose.Schema({
 
     username:{
         type: String,
-        reqiured: [true, 'username is required']
+        reqiure: [true, 'username is required']
     },
 
     address:{
         type: String,
-        reqiured: [true, 'address is required']
+        reqiure: [true, 'address is required']
     },
     phone:{
         type: String,
-        reqiured: [true, 'phone is required']
+        reqiure: [true, 'phone is required']
     }
 },{timestamps:true})
 

@@ -1,3 +1,4 @@
+import { errorHandler } from "../controller/errorHandler.js"
 import { responseHandler } from "../controller/responseHandler.js"
 import { studentDetails } from "../Model/userModel.js"
 
@@ -16,6 +17,9 @@ export const  userMethod = async(req, res) => {
             responseHandler(req, res, 200, 0, 'record created', newDetail)
         
     } catch (error) {
-        
+
+          errorHandler(req, res, 400, 1 , error.message)
+
+
     }
  }
