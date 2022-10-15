@@ -11,9 +11,16 @@ env.config()
 
 app.use(express.json())
 
+const middleWare = (req, res, next) =>{
+    
+    return res.send('eeeeeee')
 
 
-app.use('/api/v2/users', USERS.router)
+}
+
+
+
+app.use('/api/v2/users', middleWare, USERS.router)
 
 
 app.all('*', (req, res) => {
