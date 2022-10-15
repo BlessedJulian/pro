@@ -1,12 +1,15 @@
 import express from "express"
 import env from "dotenv"
 import mongoose from 'mongoose'
+import bodyParser from "body-parser"
 import { errorHandler } from "../data/controller/errorHandler.js"
 import { USERS } from "./Route/userRoute.js"
 
 const app = express()
 
 env.config()
+
+app.use(express.json())
 
 
 

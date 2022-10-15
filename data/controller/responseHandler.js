@@ -1,4 +1,4 @@
-export const responseHandler = (req, res, statusCode, responseCode, responseMessage) => {
+export const responseHandler = (req, res, statusCode, responseCode, message, responseMessage) => {
 
-    return res.status(statusCode).send({responseCode, responseMessage})
+    return res.status(statusCode).send({responseCode, message, responseMessage})
 }

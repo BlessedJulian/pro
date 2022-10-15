@@ -6,7 +6,7 @@ import { userMethod } from "../Method/userMethod.js"
 
 
  router
- .get("/createUser", userMethod )
+ .post("/createUser", userMethod )
 
 
 

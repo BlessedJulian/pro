@@ -1,6 +1,21 @@
 import { responseHandler } from "../controller/responseHandler.js"
+import { studentDetails } from "../Model/userModel.js"
 
-export const  userMethod = (req, res) => {
+export const  userMethod = async(req, res) => {
 
-    responseHandler(req, res, 200, 0, `congrats u're in `)
+    try {
+
+        const {username, address, phone} = req.body
+
+        const newDetail = await studentDetails.create({
+            username,
+            address,
+            phone
+        })
+
+            responseHandler(req, res, 200, 0, 'record created', newDetail)
+        
+    } catch (error) {
+        
+    }
  }
