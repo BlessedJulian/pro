@@ -1,25 +1,44 @@
 import { errorHandler } from "../controller/errorHandler.js"
 import { responseHandler } from "../controller/responseHandler.js"
-import { studentDetails } from "../Model/userModel.js"
+import { StudentDetails } from "../Model/userModel.js"
+import bcrypt from 'bcrypt'
 
 export const  userMethod = async(req, res) => {
 
     try {
 
-        const {username, address, phone} = req.body
+        const {username, password} = req.body
 
-        const newDetail = await studentDetails.create({
+        //using bcrpt to hash users password
+        
+        const hashed = await bcrypt.hash(password, 10)
+
+    //    return  res.send(hashed)
+
+
+
+        const newDetail = await StudentDetails.create(
+
+            {
             username,
-            address,
-            phone
-        })
+            password: hashed
+            
+            }
+        )
 
             responseHandler(req, res, 200, 0, 'record created', newDetail)
         
     } catch (error) {
 
-          errorHandler(req, res, 400, 1 , error.message)
+
+          errorHandler(req, res, 400, 1, error.message)
 
 
     }
  }
+
+
+
+
+
+ 
